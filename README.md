@@ -1,3 +1,13 @@
+# ResponseFilter demo project
+
+Steps to reproduce a bug:
+
+1. Run this project
+2. Perform request
+   ```curl -v -X GET "http://localhost:8080/json"```
+3. See stacktraces in application logs:
+   ```Unexpected error occurred: class io.micronaut.http.client.netty.FullNettyClientHttpResponse cannot be cast to class io.micronaut.http.MutableHttpResponse (io.micronaut.http.client.netty.FullNettyClientHttpResponse and io.micronaut.http.MutableHttpResponse are in unnamed module of loader 'app')```
+
 ## Micronaut 4.1.5 Documentation
 
 - [User Guide](https://docs.micronaut.io/4.1.5/guide/index.html)
