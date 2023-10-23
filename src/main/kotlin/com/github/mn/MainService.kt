@@ -41,8 +41,8 @@ internal class HttpBinFilter {
     private val log = LoggerFactory.getLogger(javaClass)
 
     @ResponseFilter
-    fun filter(request: MutableHttpRequest<*>, response: MutableHttpResponse<*>) {
-        log.debug("filter() - request: ${request::class.java.name}")
+    fun filter(response: MutableHttpResponse<*>) {
+//        log.debug("filter() - request: ${request::class.java.name}")
         log.debug("filter() - response: ${response::class.java.name}")
         response.headers.set("content-type", "text/plain")
     }
