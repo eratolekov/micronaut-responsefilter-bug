@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.github.mn
+testFramework: spock
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [app-name, gradle, http-client-test, kotlin, kotlin-application, kotlin-extension-functions, ksp, logback, management, micrometer, micrometer-prometheus, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, openapi, reactor, reactor-http-client, readme, serialization-jackson, shade, spock, yaml, yaml-build]
