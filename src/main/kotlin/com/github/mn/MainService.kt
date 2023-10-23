@@ -2,7 +2,11 @@ package com.github.mn
 
 import io.micronaut.context.annotation.Context
 import io.micronaut.http.HttpResponse
+import io.micronaut.http.MutableHttpRequest
+import io.micronaut.http.MutableHttpResponse
+import io.micronaut.http.annotation.ClientFilter
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.ResponseFilter
 import io.micronaut.http.client.annotation.Client
 import org.slf4j.LoggerFactory
 
@@ -29,4 +33,17 @@ interface HttpBinClient {
 
     @Get("/json")
     fun getJson(): HttpResponse<String>
+}
+
+@ClientFilter
+internal class HttpBinFilter {
+
+    private val log = LoggerFactory.getLogger(javaClass)
+
+    @ResponseFilter
+    fun filter(request: MutableHttpRequest<*>, response: MutableHttpResponse<*>) {
+        log.debug("filter() - request: ${request::class.java.name}")
+        log.debug("filter() - response: ${response::class.java.name}")
+        response.headers.set("content-type", "text/plain")
+    }
 }
