@@ -1,6 +1,10 @@
 micronaut:
   application:
     name: client-filter-demo
+  http.services:
+    httpbin:
+      url: http://httpbin.org
+      read-timeout: 20s
   metrics:
     enabled: true
     export:
