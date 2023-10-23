@@ -12,9 +12,13 @@ class MainService(
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
 
-    fun getJson() : String {
+    fun getJson(): String {
         log.debug("getJson()")
-        return httpBinClient.getJson().body().apply {
+        return httpBinClient.getJson().apply {
+            headers.forEach { k, v ->
+                log.debug("getJson() - header: $k, value: $v")
+            }
+        }.body().apply {
             log.debug("getJson() - result: $this")
         }
     }
